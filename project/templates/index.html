@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+{% block content %}
+<h1 class="title">
+    File Manager created by Alex Rodriguez
+</h1>
+<h3 class="description">This web can be used to store files in a server, trying to give a friendly interface to every
+    user</h3>
+<h3>You can find me here:</h3>
+<div id="social-bar">
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=alexrodriguez1995.arg@gmail.com" target="_blank"><img
+            src="{{ url_for('static', filename='images/gmail.png') }}"></a>
+    <a href="https://www.linkedin.com/in/alex-rodríguez-9b29b5194" target="_blank"><img
+            src="{{ url_for('static', filename='images/linkedin.png') }}"></a>
+    <a href="https://github.com/alex-chinche" target="_blank"><img
+            src="{{ url_for('static', filename='images/github.png') }}"></a>
+</div>
+{% endblock %}

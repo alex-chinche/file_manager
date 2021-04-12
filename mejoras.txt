@@ -1,0 +1,9 @@
+Mejoras a futuro:
+
+1- Sistema más complejo y optimizado de roles de usuarios (usando alguna libreria especializada de Flask). Actualmente tan solo se discierne entre admin y user por un booleano en la tabla User, que siempre se crea como False y debemos modificarlo a True en nuestro usuario para ser admin y tener acceso a la eliminacion de archivos.
+
+2- Manejar excepciones, casos extraños y prevenir uso fraudulento, envio de archivos maliciosos o excesivamente pesados.
+
+3- Mejorar sistema de registro para que nos envie un correo de confirmacion asociado a un campo "verified" en la tabla User
+
+4- Mejorar la tabla del listado de archivos para poder filtrarlo alfabeticamente por columna, y añadir paginación

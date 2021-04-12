@@ -1,0 +1,140 @@
+html {
+    min-height: 100%;
+}
+
+body {
+    background: linear-gradient(#1d71df, #779afa);
+    margin: 0;
+}
+
+h1, h2, h3 {
+    color: white;
+}
+
+#files {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+
+#files * {
+    padding: 5px;
+    text-align: center;
+}
+
+#files tr th {
+    text-align: center;
+    color: rgb(255, 255, 115);
+}
+
+#files tr:nth-child(even) {
+    background-color: #f2f2f270;
+}
+
+#files tr:nth-child(odd) {
+    background-color: #cccccc7c;
+}
+
+#files td {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#files th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #040686;
+    color: white;
+}
+
+#navbarMenuHeroA {
+    background-color: rgb(17, 0, 255);
+}
+
+.navbar-menu {
+    padding: 10px;
+}
+
+.selected-option {
+    padding: 10px;
+    text-decoration: none;
+    background: rgb(10, 0, 150);
+    color: rgb(255, 255, 102);
+}
+
+.navbar-item {
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    transition: 1s;
+}
+
+.navbar-item:hover {
+    background: rgb(10, 0, 150);
+    color: rgb(255, 255, 102);
+    transition: 1s;
+}
+
+.hero-body {
+    margin: 20px;
+}
+
+.download {
+    color: rgb(45, 122, 0);
+    transition: .5s;
+}
+
+.download:hover {
+    color: rgb(72, 255, 0);
+    transition: .5s;
+}
+
+.delete {
+    color: rgb(109, 0, 0);
+    transition: .5s;
+}
+
+.delete:hover {
+    color: red;
+    transition: .5s;
+}
+
+.upload-button {
+    background-color: rgb(0, 7, 88);
+    padding: 7px;
+    border-radius: 15px;
+    color: rgb(246, 255, 124);
+    cursor: pointer;
+    font-size: 14px;
+    transition: 1s;
+}
+
+.upload-button:hover {
+    background-color: rgb(0, 33, 223);
+    transition: 1s;
+}
+
+#social-bar img {
+    width: 50px;
+}
+
+.right-side-bar {
+    float: right;
+}
+
+.error {
+    display: inline-block;
+    color: white;
+    padding: 5px;
+    background-color: rgba(255, 0, 0, 0.767);
+    border-radius: 10px 10px 10px 0;
+}
+
+.error a {
+    color:white;
+}

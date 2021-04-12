@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h1 class="title">
+    Welcome, {{ name }}!
+</h1>
+
+<form id="uploadFile" action="{{ url_for('main.uploader') }}" method="POST" enctype="multipart/form-data">
+    <label for="pic-upload" class="upload-button">Upload new file<svg viewBox="0 0 14 14" width="16" height="16">
+            <path fill-rule="evenodd"
+                d="M3.47 7.78a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1-1.06 1.06L9 4.81v7.44a.75.75 0 0 1-1.5 0V4.81L4.53 7.78a.75.75 0 0 1-1.06 0z"
+                fill="currentColor"></path>
+        </svg>
+    </label>
+    <input id="pic-upload" onchange='addFile(this.form)' type="file" name="file" accept="*" style='display: none;' />
+</form>
+<h2>File list</h2>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="error">
+    {{ messages[0] }}
+</div>
+{% endif %}
+{% endwith %}
+<table id="files">
+    <tr>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Uploaded on</th>
+        <th>Hash</th>
+        <th>Download</th>
+        {% if current_user.admin %}
+        <th>Delete</th>
+        {% endif %}
+    </tr>
+    {% for file in file_list %}
+    <tr>
+        <td>{{ file.name }}</td>
+        <td>{{ file.size }}</td>
+        <td>{{ file.created_on }}</td>
+        <td>{{ file.hashed_name }}</td>
+        <td>
+            <a class="download" href="{{ url_for('main.download', file_id=file.id) }}">
+                <svg aria-hidden="true" focusable="false" width="1em" height="1em"
+                    style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+                    <path fill="currentColor" fill-rule="evenodd"
+                        d="M7.47 10.78a.75.75 0 0 0 1.06 0l3.75-3.75a.75.75 0 0 0-1.06-1.06L8.75 8.44V1.75a.75.75 0 0 0-1.5 0v6.69L4.78 5.97a.75.75 0 0 0-1.06 1.06l3.75 3.75zM3.75 13a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5z"
+                        fill="#626262" />
+                </svg>
+            </a>
+        </td>
+        {% if current_user.admin %}
+        <td>
+            <a class="delete" data-id="{{ file.id }}" href="#">
+                <svg aria-hidden="true" focusable="false" width="1em" height="1em"
+                    style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+                    <path fill="currentColor" fill-rule="evenodd"
+                        d="M2.343 13.657A8 8 0 1 1 13.657 2.343A8 8 0 0 1 2.343 13.657zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8L4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94L6.03 4.97z"
+                        fill="#626262" />
+                </svg>
+            </a>
+        </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
