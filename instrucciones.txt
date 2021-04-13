@@ -4,6 +4,8 @@ pip3 install -r requirements.txt
 
 ##### Comandos para configurar base de datos #####
 
+export FLASK_APP=project
+
 python3
 
 ##### Una vez dentro del interprete de python #####
@@ -13,6 +15,5 @@ python3
 
 ##### Para iniciar el servidor #####
 
-export FLASK_APP=project
 flask run
 
